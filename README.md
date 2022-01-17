@@ -1,21 +1,21 @@
-# Project Title
+## Email Urgency Visualizer
 
-Simple overview of use/purpose.
+A program which analyzes and create a visualization of the urgency level of an email
 
-## Description
+### Description
 
-An in-depth paragraph about your project and overview of use.
-
-## Getting Started
+The program takes in a text file of an email (or any other text), count the number
+of "urgent" words (provided in urgent-words.txt), count the number of sentences,
+then calculate the ratio of urgent words to sentences. The ratio then determines the level of 
+urgency (100% urgency corresponds with 2 urgent words per sentence). An image of a "urgency battery"
+is finally created to visualize the urgency level.
 
 ### Dependencies
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
+* Program must be downloaded and stored along with the urgent-words.txt file.
+* Program should be run on platforms which support the Racket language (e.g. DrRacket)
 
 ### Executing program
 
-* How to run the program
-* Step-by-step bullets
 ```
-code blocks for commands
+(urgency-level name_of_text_file)
