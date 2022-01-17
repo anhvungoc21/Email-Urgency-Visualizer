@@ -12,16 +12,6 @@
 ; Mini Project 4
 ; Author: Anh Vu
 ; Date: 2021-10-6
-; Acknowledgements:
-; My class notes 
-; The Racket Reference
-; CS151 student Henry Gold
-
-;;; Sample texts to be analyzed
-(define sample-1 (file->string "extremely-urgent-email.txt"))
-(define sample-2 (file->string "relatively-urgent-email.txt"))
-(define sample-3 (file->string "non-urgent-email.txt"))
-(define sample-4 "nothing.")
 
 ;;; (extract-words-downcase str) -> list?
 ;;;  str : str?
@@ -46,12 +36,6 @@
                                           (rex-repeat-0 (rex-string " "))))])
     (lambda (str)
       (length (rex-split-string splitter (string-normalize-spaces str))))))
-#|
-(test-equal? "sample-1" (tally-sentences sample-1) 4)
-(test-equal? "sample-2" (tally-sentences sample-2) 4)
-(test-equal? "sample-3" (tally-sentences sample-3) 5)
-(test-equal? "sample-4" (tally-sentences sample-4) 1)
-|#
 
 ;;; (tally-urgency-words str) -> integer?
 ;;;  str : str?
@@ -62,12 +46,6 @@
     (lambda (str)
       (let ([tally-word (section tally-value (extract-words-downcase str) <>)])
         (reduce + (map tally-word urgency-word-list))))))
-#|
-(test-equal? "sample-1" (tally-urgent-words sample-1) 9)
-(test-equal? "sample-2" (tally-urgent-words sample-2) 5)
-(test-equal? "sample-3" (tally-urgent-words sample-3) 2)
-(test-equal? "sample-4" (tally-urgent-words sample-4) 0)
-|#
 
 ;;; (ratio-urgent-to-sentences str) -> number?
 ;;;  str : str?
