@@ -60,7 +60,8 @@
 ;;; analyzed about the input string
 (define visualized-urgent-level
   (lambda (str)
-    (let ([percent (* 50 (ratio-urgent-to-sentences str))])
+    (let* ([text (file->string str)]
+           [percent (* 50 (ratio-urgent-to-sentences text))])
       (if (<= percent 100)
           (let* ([red-ish (make-color 255 (round (- 255 (* 255 (/ percent 100)))) 0)]
                  [green-ish (make-color 0 (round (- 255 (* 255 (/ percent 100)))) 0)]
